@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sqlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#sqlBg)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Window Header -->
+  <rect width="800" height="50" rx="16" fill="#0f172a"/>
+  <rect y="30" width="800" height="20" fill="#0f172a"/>
+  <line x1="0" y1="50" x2="800" y2="50" stroke="#1e293b" stroke-width="1.5"/>
+
+  <circle cx="30" cy="25" r="6" fill="#ef4444"/>
+  <circle cx="50" cy="25" r="6" fill="#f59e0b"/>
+  <circle cx="70" cy="25" r="6" fill="#10b981"/>
+  <text x="100" y="30" fill="#94a3b8" font-family="monospace" font-size="13">PostgreSQL | CTEs, Window Functions & Business Queries</text>
+  <rect x="650" y="14" width="120" height="24" rx="12" fill="#1e293b"/>
+  <text x="710" y="30" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">EXEC: 24ms</text>
+
+  <!-- Left Editor Panel -->
+  <rect x="25" y="70" width="460" height="405" rx="10" fill="#030712" stroke="#1e293b" stroke-width="1"/>
+  <text x="40" y="95" fill="#64748b" font-family="monospace" font-size="11">-- Monthly Revenue & Cumulative Performance Query</text>
+
+  <text x="40" y="125" fill="#f43f5e" font-family="monospace" font-size="12">WITH</text>
+  <text x="75" y="125" fill="#38bdf8" font-family="monospace" font-size="12">MonthlyAggregates</text>
+  <text x="210" y="125" fill="#f43f5e" font-family="monospace" font-size="12">AS (</text>
+
+  <text x="60" y="150" fill="#f43f5e" font-family="monospace" font-size="12">SELECT</text>
+  <text x="80" y="170" fill="#e2e8f0" font-family="monospace" font-size="12">DATE_TRUNC('month', order_date) AS sales_month,</text>
+  <text x="80" y="190" fill="#e2e8f0" font-family="monospace" font-size="12">region_id, category_id,</text>
+  <text x="80" y="210" fill="#38bdf8" font-family="monospace" font-size="12">SUM(unit_price * quantity) AS total_revenue,</text>
+  <text x="80" y="230" fill="#2dd4bf" font-family="monospace" font-size="12">DENSE_RANK() OVER(PARTITION BY region_id</text>
+  <text x="110" y="250" fill="#2dd4bf" font-family="monospace" font-size="12">ORDER BY SUM(unit_price * quantity) DESC) AS rank</text>
+  
+  <text x="60" y="275" fill="#f43f5e" font-family="monospace" font-size="12">FROM</text>
+  <text x="100" y="275" fill="#94a3b8" font-family="monospace" font-size="12">sales_orders so</text>
+  <text x="60" y="295" fill="#f43f5e" font-family="monospace" font-size="12">INNER JOIN</text>
+  <text x="145" y="295" fill="#94a3b8" font-family="monospace" font-size="12">products p ON so.product_id = p.id</text>
+  <text x="60" y="315" fill="#f43f5e" font-family="monospace" font-size="12">WHERE</text>
+  <text x="110" y="315" fill="#94a3b8" font-family="monospace" font-size="12">order_status = 'COMPLETED'</text>
+  <text x="60" y="335" fill="#f43f5e" font-family="monospace" font-size="12">GROUP BY</text>
+  <text x="130" y="335" fill="#94a3b8" font-family="monospace" font-size="12">1, 2, 3</text>
+  <text x="40" y="355" fill="#f43f5e" font-family="monospace" font-size="12">)</text>
+
+  <text x="40" y="380" fill="#f43f5e" font-family="monospace" font-size="12">SELECT</text>
+  <text x="95" y="380" fill="#e2e8f0" font-family="monospace" font-size="12">* FROM MonthlyAggregates WHERE rank &lt;= 3</text>
+  <text x="40" y="400" fill="#f43f5e" font-family="monospace" font-size="12">ORDER BY</text>
+  <text x="110" y="400" fill="#e2e8f0" font-family="monospace" font-size="12">region_id, rank ASC;</text>
+
+  <rect x="40" y="430" width="425" height="30" rx="4" fill="#0f172a" stroke="#22c55e" stroke-width="1"/>
+  <text x="50" y="450" fill="#22c55e" font-family="monospace" font-size="11">✓ Query returned 152 rows in 24 ms. 0 errors.</text>
+
+  <!-- Right Execution Result Table -->
+  <rect x="505" y="70" width="270" height="405" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="520" y="98" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Result Grid</text>
+
+  <!-- Table Headers -->
+  <rect x="520" y="115" width="240" height="26" fill="#1e293b"/>
+  <text x="528" y="132" fill="#94a3b8" font-family="monospace" font-size="10">REGION</text>
+  <text x="590" y="132" fill="#94a3b8" font-family="monospace" font-size="10">REVENUE</text>
+  <text x="700" y="132" fill="#94a3b8" font-family="monospace" font-size="10">RANK</text>
+
+  <!-- Row 1 -->
+  <rect x="520" y="145" width="240" height="24" fill="#131e33"/>
+  <text x="528" y="161" fill="#fff" font-family="monospace" font-size="10">North</text>
+  <text x="590" y="161" fill="#38bdf8" font-family="monospace" font-size="10">₹1,850,200</text>
+  <text x="710" y="161" fill="#22c55e" font-family="monospace" font-size="10">#1</text>
+
+  <!-- Row 2 -->
+  <rect x="520" y="172" width="240" height="24" fill="#0f172a"/>
+  <text x="528" y="188" fill="#fff" font-family="monospace" font-size="10">North</text>
+  <text x="590" y="188" fill="#38bdf8" font-family="monospace" font-size="10">₹940,150</text>
+  <text x="710" y="188" fill="#22c55e" font-family="monospace" font-size="10">#2</text>
+
+  <!-- Row 3 -->
+  <rect x="520" y="199" width="240" height="24" fill="#131e33"/>
+  <text x="528" y="215" fill="#fff" font-family="monospace" font-size="10">West</text>
+  <text x="590" y="215" fill="#38bdf8" font-family="monospace" font-size="10">₹1,420,000</text>
+  <text x="710" y="215" fill="#22c55e" font-family="monospace" font-size="10">#1</text>
+
+  <!-- Performance Badges -->
+  <rect x="520" y="245" width="240" height="70" rx="8" fill="#0b1329" stroke="#334155"/>
+  <text x="535" y="270" fill="#94a3b8" font-family="sans-serif" font-size="11">Index Scan Optimization</text>
+  <text x="535" y="295" fill="#2dd4bf" font-family="monospace" font-size="16" font-weight="bold">40% Less IO Cost</text>
+
+  <rect x="520" y="330" width="240" height="130" rx="8" fill="#0b1329" stroke="#334155"/>
+  <text x="535" y="355" fill="#94a3b8" font-family="sans-serif" font-size="11">Key SQL Features Used</text>
+  <text x="535" y="380" fill="#f8fafc" font-family="sans-serif" font-size="11">✔ CTEs & Temporary Views</text>
+  <text x="535" y="405" fill="#f8fafc" font-family="sans-serif" font-size="11">✔ Multi-Table Joins (8 Tables)</text>
+  <text x="535" y="430" fill="#f8fafc" font-family="sans-serif" font-size="11">✔ Partitioned Analytical Windows</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="pyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a101f"/>
+      <stop offset="100%" stop-color="#141e33"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#pyBg)" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect width="800" height="50" rx="16" fill="#0f172a"/>
+  <rect y="30" width="800" height="20" fill="#0f172a"/>
+  <line x1="0" y1="50" x2="800" y2="50" stroke="#1e293b" stroke-width="1.5"/>
+
+  <circle cx="30" cy="25" r="6" fill="#ef4444"/>
+  <circle cx="50" cy="25" r="6" fill="#f59e0b"/>
+  <circle cx="70" cy="25" r="6" fill="#10b981"/>
+  <text x="100" y="30" fill="#94a3b8" font-family="monospace" font-size="13">Python / Seaborn | RFM Customer Segmentation & Cohort Analysis</text>
+  <rect x="670" y="14" width="100" height="24" rx="12" fill="#1e293b"/>
+  <text x="720" y="30" fill="#2dd4bf" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">JUPYTER</text>
+
+  <!-- Left: RFM Scatter Matrix -->
+  <rect x="25" y="70" width="460" height="405" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="45" y="100" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">RFM Customer Segmentation Matrix</text>
+  <text x="45" y="120" fill="#64748b" font-family="monospace" font-size="11">X: Recency (Days) vs Y: Monetary Value (₹)</text>
+
+  <!-- Plot Area -->
+  <rect x="55" y="140" width="400" height="300" rx="6" fill="#090d16" stroke="#1e293b"/>
+  <!-- Grid -->
+  <line x1="55" y1="215" x2="455" y2="215" stroke="#1e293b" stroke-dasharray="3,3"/>
+  <line x1="55" y1="290" x2="455" y2="290" stroke="#1e293b" stroke-dasharray="3,3"/>
+  <line x1="55" y1="365" x2="455" y2="365" stroke="#1e293b" stroke-dasharray="3,3"/>
+  <line x1="155" y1="140" x2="155" y2="440" stroke="#1e293b" stroke-dasharray="3,3"/>
+  <line x1="255" y1="140" x2="255" y2="440" stroke="#1e293b" stroke-dasharray="3,3"/>
+  <line x1="355" y1="140" x2="355" y2="440" stroke="#1e293b" stroke-dasharray="3,3"/>
+
+  <!-- High Value Cluster (Cyan) -->
+  <g fill="#38bdf8" opacity="0.85">
+    <circle cx="110" cy="170" r="7"/>
+    <circle cx="125" cy="185" r="9"/>
+    <circle cx="140" cy="165" r="8"/>
+    <circle cx="95" cy="195" r="6"/>
+    <circle cx="150" cy="200" r="8"/>
+    <circle cx="130" cy="220" r="7"/>
+  </g>
+  <text x="95" y="150" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">★ Champions (High LTV)</text>
+
+  <!-- Loyal Customers (Teal) -->
+  <g fill="#2dd4bf" opacity="0.8">
+    <circle cx="210" cy="230" r="6"/>
+    <circle cx="230" cy="250" r="7"/>
+    <circle cx="195" cy="265" r="6"/>
+    <circle cx="240" cy="280" r="8"/>
+    <circle cx="260" cy="240" r="6"/>
+  </g>
+
+  <!-- At Risk Cluster (Amber) -->
+  <g fill="#f59e0b" opacity="0.75">
+    <circle cx="330" cy="310" r="6"/>
+    <circle cx="350" cy="340" r="7"/>
+    <circle cx="320" cy="360" r="6"/>
+    <circle cx="365" cy="325" r="6"/>
+  </g>
+  <text x="290" y="300" fill="#f59e0b" font-family="sans-serif" font-size="11" font-weight="bold">⚠ At-Risk (Needs Re-engagement)</text>
+
+  <!-- Dormant (Slate/Red) -->
+  <g fill="#ef4444" opacity="0.6">
+    <circle cx="410" cy="390" r="6"/>
+    <circle cx="430" cy="410" r="7"/>
+    <circle cx="395" cy="420" r="5"/>
+    <circle cx="425" cy="380" r="6"/>
+  </g>
+
+  <!-- Right: Cohort Retention & Metrics -->
+  <rect x="505" y="70" width="270" height="195" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="520" y="98" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Retention Funnel</text>
+  
+  <rect x="520" y="115" width="240" height="24" rx="4" fill="#1e293b"/>
+  <rect x="520" y="115" width="240" height="24" rx="4" fill="#0284c7" opacity="0.7"/>
+  <text x="530" y="131" fill="#fff" font-family="sans-serif" font-size="10">Acquisition: 100% (12,400)</text>
+
+  <rect x="520" y="145" width="240" height="24" rx="4" fill="#1e293b"/>
+  <rect x="520" y="145" width="160" height="24" rx="4" fill="#0d9488" opacity="0.7"/>
+  <text x="530" y="161" fill="#fff" font-family="sans-serif" font-size="10">Month 1 Repeat: 67%</text>
+
+  <rect x="520" y="175" width="240" height="24" rx="4" fill="#1e293b"/>
+  <rect x="520" y="175" width="92" height="24" rx="4" fill="#38bdf8" opacity="0.7"/>
+  <text x="530" y="191" fill="#fff" font-family="sans-serif" font-size="10">Month 3 Retained: 38.5%</text>
+
+  <rect x="520" y="205" width="240" height="24" rx="4" fill="#1e293b"/>
+  <rect x="520" y="205" width="58" height="24" rx="4" fill="#6366f1" opacity="0.7"/>
+  <text x="530" y="221" fill="#fff" font-family="sans-serif" font-size="10">Champion Cohort: 24%</text>
+
+  <!-- Right Bottom: Statistical Highlights -->
+  <rect x="505" y="280" width="270" height="195" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+  <text x="520" y="308" fill="#f8fafc" font-family="sans-serif" font-size="13" font-weight="bold">Key EDA Discoveries</text>
+  
+  <rect x="520" y="325" width="240" height="36" rx="6" fill="#1e293b"/>
+  <text x="530" y="347" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="600">Top 15% Users = 62% Revenue</text>
+
+  <rect x="520" y="370" width="240" height="36" rx="6" fill="#1e293b"/>
+  <text x="530" y="392" fill="#2dd4bf" font-family="sans-serif" font-size="11" font-weight="600">60-Day Inactive = 75% Churn</text>
+
+  <rect x="520" y="415" width="240" height="42" rx="6" fill="#1e293b"/>
+  <text x="530" y="440" fill="#f59e0b" font-family="sans-serif" font-size="11" font-weight="600">Mobile Weekend AOV: +22%</text>
+</svg>
